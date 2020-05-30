@@ -12,7 +12,7 @@ data "terraform_remote_state" "aws" {
 terraform {
   backend "s3" {
     bucket = "smarts-terraform"
-    key    = "put-repo-name-here"  ## change this to repo name
+    key    = "dialogflow-collaborate-bridge"  ## change this to repo name
     region = "us-east-1"
     dynamodb_table = "terraform-locks"
   }

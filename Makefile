@@ -1,4 +1,4 @@
-repo_name = put-repo-name-here
+repo_name = dialogflow-collaborate-bridge
 version_head = $(shell git rev-parse --short HEAD)
 version_bucket = smarts-lambda-zips
 
