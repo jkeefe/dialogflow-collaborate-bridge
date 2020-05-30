@@ -1,6 +1,7 @@
 from flask import Blueprint
 from flask import request, jsonify
 from .endpoints import bird
+from .endpoints import fromgoogle
 
 api = Blueprint('api', __name__)
 
@@ -21,10 +22,16 @@ def handle_artists():
     
     
 ## also can import other endpoints
+
 @api.route('/bird', methods=('GET', 'POST'))
 def handle_bird():
 
     # pass the request to the bird handler
     return bird.handler(request)
 
+@api.route('/fromgoogle', methods=('GET', 'POST'))
+def handle_fromgoogle():
+
+    # pass the request to the bird handler
+    return fromgoogle.handler(request)
 
