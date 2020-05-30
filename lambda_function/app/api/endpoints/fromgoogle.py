@@ -4,7 +4,7 @@ def handler(incoming):
     
     # incoming data will be structured as described
     # here: https:#cloud.google.com/dialogflow/docs/fulfillment-webhook#webhook_request
-    from_google = incoming.body
+    from_google = incoming.json
     
     print("FROM_GOOGLE:", json.dumps(from_google) )
     
@@ -12,7 +12,5 @@ def handler(incoming):
     to_google = {
         "fulfillmentMessages": from_google.queryResult.fulfillmentMessages
     }
-    
-    print(from_google)
     
     return to_google
