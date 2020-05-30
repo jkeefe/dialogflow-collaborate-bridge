@@ -13,4 +13,4 @@ def handler(incoming):
         "fulfillmentMessages": from_google.queryResult.fulfillmentMessages
     }
     
-    return to_google
+    return jsonify(to_google)
