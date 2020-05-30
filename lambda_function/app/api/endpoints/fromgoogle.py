@@ -11,7 +11,7 @@ def handler(incoming):
     
     # send back to google the messages already established there
     to_google = {
-        "fulfillmentMessages": from_google.queryResult.fulfillmentMessages
+        "fulfillmentMessages": from_google['queryResult']['fulfillmentMessages']
     }
     
     return jsonify(to_google)
