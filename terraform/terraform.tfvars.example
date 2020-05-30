@@ -1,0 +1,11 @@
+## This is an example of the actual terraform.tfvars file,
+## which keeps secrets and isn't checked into git.
+
+## These variables must also be declared (see the vars.tf file)
+
+## Use them in terraform using, for example, `var.db_user`
+
+db_name = "replace_with_your_database_name"
+db_user = "replace_with_your_database_user"
+db_password = "replace_with_your_database_password"
+slack_url = "replace_with_your_slack_incoming_webhook_url"
