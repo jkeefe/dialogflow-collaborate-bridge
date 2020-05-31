@@ -146,8 +146,15 @@ def handler(incoming):
     
     for key in parameters.keys():
         if parameters[key] != "":
+            
+            ## sometimes google passes a json object here
+            if isinstance(parameters[key], dict):
+                info = json.dumps(parameters[key])
+            else:
+                info = parameters[key]
+            
             update_column_tracker(connection, now, key)
-            insert_into_log(connection, now, identifier, key, parameters[key])
+            insert_into_log(connection, now, identifier, key, info)
     
     ## Add the raw text into the log
     insert_into_log(connection, now, identifier, "raw_text", user_said) 
