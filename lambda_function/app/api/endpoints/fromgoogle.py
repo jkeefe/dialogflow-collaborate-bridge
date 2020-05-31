@@ -11,7 +11,7 @@
 # ```
 # 
 
-# In[13]:
+# In[81]:
 
 
 import pymysql.cursors
@@ -34,7 +34,7 @@ user = os.environ['DBUSER']
 password = os.environ['DBPASSWORD']
 
 
-# In[47]:
+# In[90]:
 
 
 def checkId(goog_data):
@@ -56,74 +56,60 @@ def checkId(goog_data):
     return f'unknown platform {session}'
 
 
-# In[59]:
+# In[97]:
 
 
 def update_first_contact(connection, now, identifier):
         
     ## Add a new item to the first_contact, but chill 
     ## if it already exists
-    
 
-    sql = f'''
-        INSERT IGNORE INTO first_contact 
-         (identifier, created_at)
-        VALUES
-         ( '{identifier}', '{now}' )
-    '''
+    sql = "INSERT IGNORE INTO first_contact (`created_at`, `identifier`) VALUES (%s, %s)"
 
     with connection.cursor() as cursor:
             # Create a new record
-            cursor.execute(sql)
+            cursor.execute(sql, ( now, identifier ))
 
     connection.commit()
     
     return True
 
 
-# In[71]:
+# In[98]:
 
 
 def insert_into_log(connection, now, identifier, key, value):
     
-    sql = f'''
-        INSERT INTO log 
-         (created_at, identifier, item_key, item_value)
-        VALUES
-         ( '{now}' , '{identifier}', '{key}', '{value}' )
-    '''   
-    
+    # Create a new record
+    sql = "INSERT INTO `log` (`created_at`, `identifier`, `item_key`, `item_value`) VALUES (%s, %s, %s, %s)"
+
     with connection.cursor() as cursor:
             # Create a new record
-            cursor.execute(sql)
+            cursor.execute(sql, ( now, identifier, key, value ))
 
     connection.commit()
     
     return True
 
 
-# In[72]:
+# In[99]:
 
 
 def update_column_tracker(connection, now, column):
-    
-    sql = f'''
-        INSERT IGNORE INTO column_tracker 
-         (col, created_at)
-        VALUES
-         ( '{column}', '{now}' )
-    '''
+
+    # Create a new record
+    sql = "INSERT IGNORE INTO `column_tracker` (`created_at`, `col`) VALUES (%s, %s)"
 
     with connection.cursor() as cursor:
             # Create a new record
-            cursor.execute(sql)
+            cursor.execute(sql, ( now, column ))
 
     connection.commit()
     
     return True
 
 
-# In[73]:
+# In[100]:
 
 
 #### Main function ####
@@ -133,11 +119,8 @@ def handler(incoming):
     # incoming data will be structured as described
     # here: https:#cloud.google.com/dialogflow/docs/fulfillment-webhook#webhook_request
     
-    # FOR PROD 
     from_google = incoming.json
-    # ## FOR LOCAL TEST
-    # from_google = incoming
-
+    
     # Open the database connection
     connection = pymysql.connect(host=host,
                                  user=user,
@@ -176,9 +159,8 @@ def handler(incoming):
         "fulfillmentMessages": from_google['queryResult']['fulfillmentMessages']
     }
     
-    ## FOR PROD
     return jsonify(to_google)
     
-    ## FOR LOCAL TEST
-    # return (to_google)
+
+
 
