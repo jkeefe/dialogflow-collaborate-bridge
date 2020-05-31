@@ -1,0 +1,42 @@
+{
+    "responseId": "a96d4f9c-7b85-4a04-8b43-be609c8c695e-0f0e27e1",
+    "queryResult": {
+        "queryText": "Hello",
+        "action": "input.welcome",
+        "parameters": {},
+        "allRequiredParamsPresent": true,
+        "fulfillmentText": "Hello! What city are you in now?",
+        "fulfillmentMessages": [
+            {
+                "text": {
+                    "text": [
+                        "Hello! What city are you in now?"
+                    ]
+                }
+            }
+        ],
+        "outputContexts": [
+            {
+                "name": "projects/propublicafruittest-pyrata/agent/sessions/96c6d41c-b1b0-e1f8-4ca7-7e9945fa1a0a/contexts/waiting-city",
+                "lifespanCount": 5
+            },
+            {
+                "name": "projects/propublicafruittest-pyrata/agent/sessions/96c6d41c-b1b0-e1f8-4ca7-7e9945fa1a0a/contexts/__system_counters__",
+                "parameters": {
+                    "no-input": 0,
+                    "no-match": 0
+                }
+            }
+        ],
+        "intent": {
+            "name": "projects/propublicafruittest-pyrata/agent/intents/10d4a02d-ac4c-4669-8782-8beffec91447",
+            "displayName": "Default Welcome Intent"
+        },
+        "intentDetectionConfidence": 1,
+        "languageCode": "en"
+    },
+    "originalDetectIntentRequest": {
+        "payload": {}
+    },
+    "session": "projects/propublicafruittest-pyrata/agent/sessions/96c6d41c-b1b0-e1f8-4ca7-7e9945fa1a0a"
+}

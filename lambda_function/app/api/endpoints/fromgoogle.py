@@ -1,5 +1,27 @@
 from flask import jsonify
 import json
+import re
+
+def checkId(goog_data):
+    
+    # grab the last bit of the session ID to use as default
+    # this regex does that somehow! :-)
+    session = re.match(r'/[^/]+$/', goog_data['session'])
+    
+    # no source, so return the session ID
+    if 'source' not in goog_data['originalDetectIntentRequest'].keys():
+        return `test-session-${session}`
+
+    
+    # for twilio, it's the From phone number
+    if goog_data['originalDetectIntentRequest']['source'] == "twilio"):
+        return goog_data['originalDetectIntentRequest']['payload']['data']['From']
+    
+    # otherwise we have an unknown platform
+    return `unknown platform ${session}`
+
+
+#### Main function
 
 def handler(incoming):
     
