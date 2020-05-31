@@ -70,3 +70,12 @@ FLASK_DEBUG=1 FLASK_APP=run.py flask run
 
 In a browser, try `http://localhost:5000/` and `http://localhost:5000/artists`
 
+### URLs for endpoints
+
+- fromgoogle: https://r2drvfpno4.execute-api.us-east-1.amazonaws.com/prod/fromgoogle
+
+
+### TODO
+
+- make `collab` database and tables in the private subnet
+- turn on encryption for the data
