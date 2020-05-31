@@ -145,8 +145,9 @@ def handler(incoming):
     parameters = from_google['queryResult']['parameters']
     
     for key in parameters.keys():
-        update_column_tracker(connection, now, key)
-        insert_into_log(connection, now, identifier, key, parameters[key])
+        if parameters[key] != "":
+            update_column_tracker(connection, now, key)
+            insert_into_log(connection, now, identifier, key, parameters[key])
     
     ## Add the raw text into the log
     insert_into_log(connection, now, identifier, "raw_text", user_said) 
