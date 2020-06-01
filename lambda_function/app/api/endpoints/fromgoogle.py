@@ -87,11 +87,18 @@ def insert_into_pieces(connection, now, identifier, key, value):
     hexed = result.hexdigest()
     
     # Create a new record
-    sql = "INSERT IGNORE INTO `data_pieces` (`ident_key_hash`, `created_at`, `identifier`, `item_key`, `item_value`) VALUES (%s, %s, %s, %s, %s)"
+    sql = '''
+    INSERT IGNORE INTO `data_pieces` 
+        (`ident_key_hash`, `created_at`, `identifier`, `item_key`, `item_value`) 
+    VALUES
+        (%s, %s, %s, %s, %s)
+    ON DUPLICATE KEY UPDATE `item_value` = %s
+    '''
+    
 
     with connection.cursor() as cursor:
             # Create a new record
-            cursor.execute(sql, ( hexed, now, identifier, key, value ))
+            cursor.execute(sql, ( hexed, now, identifier, key, value, value ))
 
     connection.commit()
     
