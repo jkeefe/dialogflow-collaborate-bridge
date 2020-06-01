@@ -1,0 +1,64 @@
+{
+  "responseId": "d94588a3-ec96-452f-8119-3f06a43cd5ad-0f0e27e1",
+  "queryResult": {
+    "queryText": "Minneapolis",
+    "parameters": {
+      "geo-city": "Minneapolis",
+      "location": ""
+    },
+    "allRequiredParamsPresent": true,
+    "fulfillmentText": "What's your favorite fruit?",
+    "fulfillmentMessages": [
+      {
+        "text": {
+          "text": [
+            "What's your favorite fruit?"
+          ]
+        }
+      }
+    ],
+    "outputContexts": [
+      {
+        "name": "projects/propublicafruittest-pyrata/agent/sessions/96c6d41c-b1b0-e1f8-4ca7-7e9945fa1a0a/contexts/waiting-fruit",
+        "lifespanCount": 5,
+        "parameters": {
+          "geo-city": "Minneapolis",
+          "geo-city.original": "Minneapolis",
+          "location": "",
+          "location.original": ""
+        }
+      },
+      {
+        "name": "projects/propublicafruittest-pyrata/agent/sessions/96c6d41c-b1b0-e1f8-4ca7-7e9945fa1a0a/contexts/waiting-city",
+        "lifespanCount": 4,
+        "parameters": {
+          "geo-city": "Minneapolis",
+          "geo-city.original": "Minneapolis",
+          "location": "",
+          "location.original": ""
+        }
+      },
+      {
+        "name": "projects/propublicafruittest-pyrata/agent/sessions/96c6d41c-b1b0-e1f8-4ca7-7e9945fa1a0a/contexts/__system_counters__",
+        "parameters": {
+          "no-input": 0,
+          "no-match": 0,
+          "geo-city": "Minneapolis",
+          "geo-city.original": "Minneapolis",
+          "location": "",
+          "location.original": ""
+        }
+      }
+    ],
+    "intent": {
+      "name": "projects/propublicafruittest-pyrata/agent/intents/d9ae3009-8f05-43c1-a3fc-ce69f88de8ef",
+      "displayName": "Get City"
+    },
+    "intentDetectionConfidence": 1,
+    "languageCode": "en"
+  },
+  "originalDetectIntentRequest": {
+    "payload": {}
+  },
+  "session": "projects/propublicafruittest-pyrata/agent/sessions/96c6d41c-b1b0-e1f8-4ca7-7e9945fa1a0a"
+}

@@ -14,6 +14,8 @@ requests = "*"
 pymysql = "*"
 sqlalchemy = "*"
 pandas = "*"
+s3fs = "*"
+boto3 = "*"
 
 [requires]
 python_version = "3.7"
