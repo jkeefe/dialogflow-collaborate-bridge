@@ -13,6 +13,7 @@ jupyterlab = "*"
 requests = "*"
 pymysql = "*"
 sqlalchemy = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.7"
