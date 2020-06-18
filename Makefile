@@ -1,6 +1,6 @@
 repo_name = dialogflow-collaborate-bridge
 version_head = $(shell git rev-parse --short HEAD)
-version_bucket = smarts-lambda-zips
+version_bucket = pp-lambda-zips
 
 tf = docker run \
 	-v ${HOME}/.aws:/root/.aws \
@@ -48,4 +48,3 @@ layer:
 	@echo "`tput bold`\nDone! If you update your packages, you'll need to run 'make layer' again.\n`tput sgr0`"
 
 do: zip apply
-

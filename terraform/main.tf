@@ -2,19 +2,19 @@ data "terraform_remote_state" "aws" {
   backend = "s3"
   workspace = "default"
   config = {
-    bucket = "smarts-terraform"
-    key    = "infrastructure"
+    bucket = "pp-aws-terraform"  ## NOTE! Bucket versioning must be enabled
+    key    = "infra-dialogflow-collaborate-bridge"
     region = "us-east-1"
-    dynamodb_table = "terraform-locks"
+    dynamodb_table = "pp-aws-terraform-locks2"  ## Must use primarykey named LockID
   }
 }
 
 terraform {
   backend "s3" {
-    bucket = "smarts-terraform"
-    key    = "dialogflow-collaborate-bridge"  ## change this to repo name
+    bucket = "pp-aws-terraform"  ## NOTE! Bucket versioning must be enabled
+    key    = "app-dialogflow-collaborate-bridge"
     region = "us-east-1"
-    dynamodb_table = "terraform-locks"
+    dynamodb_table = "pp-aws-terraform-locks2"  ## Must use primarykey named LockID
   }
 }
 
