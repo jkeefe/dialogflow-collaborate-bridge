@@ -1,6 +1,6 @@
 repo_name = propublica-dialogflow-collaborate-bridge
 version_head = $(shell git rev-parse --short HEAD)
-version_bucket = pp-lambda-zips
+version_bucket = pp-lambda-zips-east1
 
 tf = docker run \
 	-v ${HOME}/.aws:/root/.aws \
