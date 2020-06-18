@@ -12,7 +12,7 @@ data "terraform_remote_state" "aws" {
 terraform {
   backend "s3" {
     bucket = "pp-aws-terraform"  ## NOTE! Bucket versioning must be enabled
-    key    = "app-dialogflow-collaborate-bridge"
+    key    = "propublica-dialogflow-collaborate-bridge" # MUST be same as "repo_name" in Makefile
     region = "us-east-1"
     dynamodb_table = "pp-aws-terraform-locks2"  ## Must use primarykey named LockID
   }

@@ -1,4 +1,4 @@
-repo_name = dialogflow-collaborate-bridge
+repo_name = propublica-dialogflow-collaborate-bridge
 version_head = $(shell git rev-parse --short HEAD)
 version_bucket = pp-lambda-zips
 
