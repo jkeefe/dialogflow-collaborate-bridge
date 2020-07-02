@@ -5,8 +5,8 @@ version_bucket = pp-lambda-zips-east1
 tf = docker run \
 	-v ${HOME}/.aws:/root/.aws \
 	-v $(shell pwd)/terraform/\:/app/ \
-		-e TF_VAR_version_key=$(repo_name)/$(version_head).zip \
-		-e TF_VAR_version_bucket=$(version_bucket) \
+	-e TF_VAR_version_key=$(repo_name)/$(version_head).zip \
+	-e TF_VAR_version_bucket=$(version_bucket) \
 	-e TF_VAR_repo_name=$(repo_name) \
 	-e AWS_PROFILE=${AWS_PROFILE} \
 	-w /app \
