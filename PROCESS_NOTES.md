@@ -47,7 +47,7 @@ These are notes I write along the way. They may contain useful information and d
 - Established the right aws profile:
 
 ```
-export AWS_PROFILE=johnkeefe-newspicks
+export AWS_PROFILE=johnkeefe
 ```
 
 - Did `make init`
