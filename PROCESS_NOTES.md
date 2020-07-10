@@ -72,10 +72,29 @@ In a browser, try `http://localhost:5000/` and `http://localhost:5000/artists`
 
 ### URLs for endpoints
 
+#### Really Good Smarts servers:
+
 - fromgoogle: https://r2drvfpno4.execute-api.us-east-1.amazonaws.com/prod/fromgoogle
+
+#### ProPublica servers
+
+- fromgoogle: https://63ah36h8h3.execute-api.us-east-1.amazonaws.com/prod/fromgoogle
 
 
 ### TODO
 
 - make `collab` database and tables in the private subnet
 - turn on encryption for the data
+
+
+### TODO via Mike
+
+Solve the problem that lambda can't talk to the database:  
+
+```
+Access denied for user 'root'@'10.120.5.8' (using password: YES
+```
+
+- check the terraform.tvars I have matches his
+- make sure those match the admin passwords for the database
+
