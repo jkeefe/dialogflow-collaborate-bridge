@@ -47,7 +47,7 @@ These are notes I write along the way. They may contain useful information and d
 - Established the right aws profile:
 
 ```
-export AWS_PROFILE=johnkeefe-newspicks
+export AWS_PROFILE=johnkeefe
 ```
 
 - Did `make init`
@@ -79,3 +79,68 @@ In a browser, try `http://localhost:5000/` and `http://localhost:5000/artists`
 
 - make `collab` database and tables in the private subnet
 - turn on encryption for the data
+
+
+## Google Sheets
+
+Use [this stack overflow](https://stackoverflow.com/questions/42362702/how-to-import-a-csv-file-using-google-sheets-api-v4) guidance
+
+- Enable the Sheets API by clicking on [these docs](https://developers.google.com/sheets/api/quickstart/python) and then using the big blue button with no additional changes.
+
+- Save the `credentials.json` file to the `secrets` folder.
+
+- install this: `pipenv install google-api-python-client google-auth-httplib2 google-auth-oauthlib`
+
+- do:
+
+```
+pipenv shell
+python authenticate.py
+```
+
+- This creates `token.pickle`
+
+- Made a new spreadsheet
+
+- Copied Sheet ID from URL
+
+- Pasted into Jupyter code
+
+And it works.
+
+## Alternative
+
+Trying this from [here](https://medium.com/@m.ivhani/setting-up-a-project-service-accounts-and-oauth-credentials-897b35be4175) along with [gspread-pandas](ttps://pypi.org/project/gspread-pandas/)
+
+- Go to the Google [APIs Console](https://console.developers.google.com/?pli=1)
+- Create a new project.
+- Click Enable APIs & Services. 
+- Search for and enable the Google Sheets API.
+- Click on "Credentials" in the left rail.
+- Click on "Create Credentials" at top
+- Pick "Service Account"
+- Named it.
+- Name the service account and grant it a Project Role of Editor.
+- Skipped the "Grant users access" ... and just clicked "Done"
+- From the list click on the pencil
+- Click "Add Key"
+- Pick "Create new key"
+- Download the JSON file.
+- Rename file to `google_secret.json`
+- Put it in the directory `./secrets`
+- Set environment variable to the absolute path: 
+```
+GSPREAD_PANDAS_CONFIG_DIR='/Users/johnkeefe/Code/jkeefe-github/dialogflow-collaborate-bridge/secrets'
+```
+Though note that on lambda that path will be:
+```
+GSPREAD_PANDAS_CONFIG_DIR='/var/task/secrets'
+```
+- I also had to search for and enable the Google Drive API
+
+- Must share each spreadsheet (as an Editor) with `collab-bridge@springagent-b6194.iam.gserviceaccount.com`
+
+
+
+
+
