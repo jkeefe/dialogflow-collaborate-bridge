@@ -30,6 +30,17 @@ This is my template for spinning up a new lambda function using the Really Good 
     - Initialize Terraform with `make init` (note that Docker must be running)
     - Create your layer file with `make layer`. This will zip your Python packages and put them on S3.
     
+- **Using Pandas & Numpy**:
+    - Since these are compiled depending on the operating system, you need a version specific to the unix system Lambda uses.
+    - Go to the following sites to download one file in each place that a) matches the version of Python you're using on your Lambda function and b) ends with `manylinux1_x86_64.whl`.
+        - [Pandas files](https://pypi.org/project/pandas/#files)
+        - [Numpy files](https://pypi.org/project/numpy/#files)
+    - Unzip the files using `unzip` on the command line
+    - Put the resulting folders into the `lambda_linux_packages` folder in this project.
+    - In the Makefile, ensure the python version is correct at the top
+    - Uncomment the lines in `make layer`
+    - Run `make layer`!
+    
 - **Deploy!**
     - Commit your code to git. Your working directory must be clean.
     - See what's going to happen with `make plan`

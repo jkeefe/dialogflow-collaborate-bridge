@@ -23,3 +23,7 @@ variable "db_password" {
 variable "slack_url" {
     type = string
 }
+
+variable "GSPREAD_PANDAS_CONFIG_DIR" {
+    type = string
+}

@@ -1,6 +1,7 @@
 repo_name = dialogflow-collaborate-bridge
 version_head = $(shell git rev-parse --short HEAD)
 version_bucket = smarts-lambda-zips
+python_version = 3.7
 
 tf = docker run \
 	-v ${HOME}/.aws:/root/.aws \
@@ -39,6 +40,11 @@ layer:
 	mkdir -p temp_deploy/python/lib
 	@echo "`tput bold`\nCopying all the packages from .venv into a temp directory ...`tput sgr0`"
 	cp -r .venv/lib/* temp_deploy/python/lib
+	## uncomment the following 4 lines if using pandas and/or numpy
+	@echo "`tput bold`\nCopying packages from lambda_linux_packages into the temp directory ...`tput sgr0`"
+	rm -r temp_deploy/python/lib/python${python_version}/site-packages/pandas*
+	rm -r temp_deploy/python/lib/python${python_version}/site-packages/numpy*
+	cp -r lambda_linux_packages/* temp_deploy/python/lib/python${python_version}/site-packages/
 	@echo "`tput bold`\nZipping 'em up ...`tput sgr0`"
 	cd temp_deploy; zip -9 -qr project_layer_package.zip *
 	@echo "`tput bold`\nSending to S3 ...`tput sgr0`"

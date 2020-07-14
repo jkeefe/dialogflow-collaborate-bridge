@@ -26,6 +26,7 @@ resource "aws_lambda_function" "project_lambda" {
       DBUSER           = var.db_user
       DBPASSWORD       = var.db_password
       SLACK_URL        = var.slack_url
+      GSPREAD_PANDAS_CONFIG_DIR = var.GSPREAD_PANDAS_CONFIG_DIR
     }
   }
 }

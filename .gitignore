@@ -44,11 +44,8 @@ venv
 # Deploy package folder
 temp_deploy
 
-<<<<<<< HEAD
-# Secrets
-secrets
-
-=======
 # Any Secrets Folder
 secrets
->>>>>>> ad3b31bfba2fd269f9d21e5ed8b8ce5ca4b9b740
+
+# Lambda-specific python packages
+lambda_linux_packages

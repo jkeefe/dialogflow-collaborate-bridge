@@ -32,6 +32,13 @@ def handle_bird():
 @api.route('/fromgoogle', methods=('GET', 'POST'))
 def handle_fromgoogle():
 
-    # pass the request to the bird handler
+    # pass the request to the handler
     return fromgoogle.handler(request)
 
+@api.route('/updatesheets', methods=('GET', 'POST'))
+def handle_updatesheets():
+
+    # pass the request to the handler
+    return updatesheets.handler(request)
+    
+    
