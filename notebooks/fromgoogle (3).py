@@ -177,7 +177,7 @@ def handler(incoming):
     
     #PROD from_google = incoming.json
     #DEV from_google = incoming
-    from_google = incoming.json
+    from_google = incoming
     
     # Open the database connection
     connection = pymysql.connect(host=host,
@@ -228,5 +228,77 @@ def handler(incoming):
     
     #PROD return jsonify(to_google)
     #DEV return (to_google)
-    return jsonify(to_google)
+    return (to_google)
+
+
+# In[ ]:
+
+
+
+
+
+# In[17]:
+
+
+test_payload = {
+    "responseId": "a96d4f9c-7b85-4a04-8b43-be609c8c695e-0f0e27e1",
+    "queryResult": {
+        "queryText": "Hola",
+        "action": "input.welcome",
+        "parameters": {},
+        "allRequiredParamsPresent": True,
+        "fulfillmentText": "Hello! What city are you in now?",
+        "fulfillmentMessages": [
+            {
+                "text": {
+                    "text": [
+                        "Hello! What city are you in now?"
+                    ]
+                }
+            }
+        ],
+        "outputContexts": [
+            {
+                "name": "projects/propublicafruittest-pyrata/agent/sessions/96c6d41c-b1b0-e1f8-4ca7-7e9945fa1a0a/contexts/waiting-city",
+                "lifespanCount": 5
+            },
+            {
+                "name": "projects/propublicafruittest-pyrata/agent/sessions/96c6d41c-b1b0-e1f8-4ca7-7e9945fa1a0a/contexts/__system_counters__",
+                "parameters": {
+                    "no-input": 0,
+                    "no-match": 0
+                }
+            }
+        ],
+        "intent": {
+            "name": "projects/propublicafruittest-pyrata/agent/intents/10d4a02d-ac4c-4669-8782-8beffec91447",
+            "displayName": "Default Welcome Intent"
+        },
+        "intentDetectionConfidence": 1,
+        "languageCode": "en"
+    },
+    "originalDetectIntentRequest": {
+        "payload": {}
+    },
+    "session": "projects/propublicafruittest-pyrata/agent/sessions/96c6d41c-b1b0-e1f8-4ca7-7e9945fa1a0a"
+}
+
+
+# In[23]:
+
+
+## Trying it
+handler(test_payload)
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
 
