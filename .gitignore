@@ -43,3 +43,7 @@ venv
 
 # Deploy package folder
 temp_deploy
+
+# Secrets
+secrets
+
