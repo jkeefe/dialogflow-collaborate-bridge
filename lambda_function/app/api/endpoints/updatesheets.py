@@ -146,10 +146,8 @@ def handler(incoming):
 
 
     print("All updates complete.")
-
     
-    return True
-
+    return "OK"
 
 # In[14]:
 
