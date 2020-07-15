@@ -1,7 +1,9 @@
 from flask import Blueprint
 from flask import request, jsonify
+
 from .endpoints import bird
 from .endpoints import fromgoogle
+from .endpoints import updatesheets
 
 api = Blueprint('api', __name__)
 
