@@ -140,6 +140,22 @@ GSPREAD_PANDAS_CONFIG_DIR='/var/task/secrets'
 
 - Must share each spreadsheet (as an Editor) with `collab-bridge@springagent-b6194.iam.gserviceaccount.com`
 
+## Main Google Sheet
+
+[This google sheet](https://docs.google.com/spreadsheets/d/1wZDpHfIqKBEhmS_F485kFKmrBUAbrfMqu2HW4NOY6BE/edit#gid=0) contains the top-level list of each project and its associated Google Sheets ID.
+
+It also has [a script](sheet_scripts/Code.gs) that triggers a refresh of all the spreadsheets listed from the data stored in the Dialogflow/Collaborate Bridge databases.
+
+## Triggering a refresh
+
+You can also trigger a refresh manually going to the refresh URL: https://r2drvfpno4.execute-api.us-east-1.amazonaws.com/prod/updatesheets
+
+I've set up a job on "cron-job.org" to hit that URL every 30 minutes.
+
+
+
+ 
+
 
 
 
