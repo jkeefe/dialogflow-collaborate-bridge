@@ -42,16 +42,7 @@ def checkId(goog_data):
     # grab the last bit of the session ID to use as default
     session = re.search(r'sessions\/(.+)$', goog_data['session']).group(1)
     
-    # no source, so return the session ID
-    if 'source' not in goog_data['originalDetectIntentRequest'].keys():
-        return f'test-{session}'
-    
-    # for twilio, it's the From phone number
-    if goog_data['originalDetectIntentRequest']['source'] == "twilio":
-        return goog_data['originalDetectIntentRequest']['payload']['data']['From']
-    
-    # otherwise we have an unknown platform
-    return f'unkplatform-{session}'
+    return session
 
 
 # In[11]:
