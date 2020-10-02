@@ -40,20 +40,18 @@ password = os.environ['DBPASSWORD']
 def checkId(goog_data):
     
     # grab the last bit of the session ID to use as default
-    # this regex does that somehow! :-)
-    session = re.search(r'([^-]+$)', goog_data['session']).group(1)
+    session = re.search(r'sessions\/(.+)$', goog_data['session']).group(1)
     
     # no source, so return the session ID
     if 'source' not in goog_data['originalDetectIntentRequest'].keys():
-        return f'test-session-{session}'
-
+        return f'test-{session}'
     
     # for twilio, it's the From phone number
     if goog_data['originalDetectIntentRequest']['source'] == "twilio":
         return goog_data['originalDetectIntentRequest']['payload']['data']['From']
     
     # otherwise we have an unknown platform
-    return f'unknown platform {session}'
+    return f'unkplatform-{session}'
 
 
 # In[11]:
